@@ -36,7 +36,7 @@ public class TooltipConfig {
             .setTooltip(Text.translatable("entrytooltip.tooltipscroll.startontop"))
             .setSaveConsumer(newValue -> Options.startOnTop = newValue)
             .build());
-        
+
         general.addEntry(entryBuilder.startBooleanToggle(Text.translatable("entry.tooltipscroll.resetonunlock"), Options.resetOnUnlock)
             .setDefaultValue(true)
             .setTooltip(Text.translatable("entrytooltip.tooltipscroll.resetonunlock"))
@@ -87,6 +87,12 @@ public class TooltipConfig {
             .setTooltip(Text.translatable("entrytooltip.tooltipscroll.matrix_compatibility"))
             .setSaveConsumer(val -> Options.matrixMode = val)
             .build());
+
+        general.addEntry(entryBuilder.startBooleanToggle(Text.translatable("entry.tooltipscroll.disablechatscroll"), Options.disableChatScroll)
+                .setDefaultValue(false)
+                .setTooltip(Text.translatable("entrytooltip.tooltipscroll.disablechatscroll"))
+                .setSaveConsumer(val -> Options.disableChatScroll = val)
+                .build());
 
         builder.setSavingRunnable(Options::saveJSON);
         return builder.build();
